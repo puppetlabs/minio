@@ -4,6 +4,7 @@ on:
   schedule:
   # Run every weekday at 8am
   - cron: '0 7 * * 1-5'
+  pull_request:
 
 jobs:
   build:
