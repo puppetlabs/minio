@@ -2,8 +2,9 @@ name: Trivy security scan
 
 on:
   schedule:
-  # Run every weekday at 8am
+  # Run every weekday at 7am
   - cron: '0 7 * * 1-5'
+  pull_request:
 
 jobs:
   build:
@@ -21,7 +22,7 @@ jobs:
           image-ref: '${{ env.IMAGE }}'
           ignore-unfixed: true
           vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH,MEDIUM'
+          severity: 'CRITICAL,HIGH'
           format: 'sarif'
           output: 'trivy-results.sarif'
 
